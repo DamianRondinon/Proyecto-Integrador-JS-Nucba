@@ -1,0 +1,184 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 65px;
+}
+
+.overlay {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(141, 220, 139, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: none;
+}
+
+.show-overlay {
+    display: block;
+}
+
+/* ANIMACIONES NAVBAR */
+
+.navbar-list li {
+    position: relative;
+    padding: 0;
+}
+
+.navbar-list li a::after {
+    content: '';
+    height: 4px;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.15s ease;
+}
+
+.navbar-list li a:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+/* CARRITO */
+
+.cart-icon .user-icon {
+    transition: all 0.2s ease-out;
+  }
+  
+  .cart-icon:hover {
+    border: 5px solid #ffffff;
+    padding: 12px 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: #ff6b6c;
+    transition: all 0.2s ease-in;
+  }
+
+  .user-icon:hover {
+    border: 5px solid #ffffff;
+    padding: 12px 18px;
+    font-weight: 600;
+    border-radius: 10rem;
+    color: #ff6b6c;
+    transition: all 0.2s ease-in;
+  }
+  
+  /*Botones del carrito*/
+  .quantity-handler {
+    transition: all 0.2s ease-in;
+  }
+  
+  .quantity-handler:hover {
+    cursor: pointer;
+    background-color: var(--text-white);
+    transition: all 0.2s ease-in;
+  }
+  
+  /*Botones comprar(carrito) y add(producto) y BENUCBER(Hero)*/
+  .btn-add,
+  .hero-info a {
+    transition: all 0.2s ease-out;
+  }
+  
+  .btn-add:hover,
+  .hero-info a:hover {
+    background-color: var(--text-black);
+    transition: all 0.2s ease-in;
+  }
+  
+  /* VER MÁS SECCION */
+  .btn-load {
+    transition: all 0.2s ease-out;
+    font-weight: 600;
+  }
+  
+  .btn-load:hover {
+    background-color: #156148;
+    color: var(--text-white);
+    transition: all 0.2s ease-in;
+  }
+
+/* ANIMACIONES */
+
+@keyframes fade {
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+    transform: translateY(100px);
+    }
+    to {
+    transform: translateY(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+    transform: translateX(100px);
+    }
+    to {
+    transform: translateX(0);
+    }
+}
+
+@keyframes slider{
+    0%{
+        left: 100%;
+        width: 100%;
+    }
+    5%{
+        left: 0;
+    }
+    25%{
+        left: 0;
+    }
+    30%{
+        left: -100%;
+        width: 100%;
+    }
+    30.0001%{
+        left: -100%;
+        width: 0;
+    }
+    100%{
+        left: 100%;
+        width: 0;
+    }
+}
+
+.hero-info h1 {
+    animation: fade 1s ease-in, slide-right 1.3s ease-in-out;
+}
+
+.hero-info p {
+    opacity: 0;
+    animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+    animation-delay: 0.3s;
+}
+
+.hero-info a {
+    opacity: 0;
+    animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+    animation-delay: 0.4s;
+}
+
+.hero-right img {
+    transition: transform .3s;
+}
+
+.hero-right img:hover {
+    transform: scale(1.20) translate3d(10%, 10%, 0);
+}

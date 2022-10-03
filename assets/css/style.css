@@ -1,0 +1,433 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  /* bg colors */
+  --background: #eff6ee;
+  --primary: #6a994e;
+  --secondary: #386641;
+  --black: #171716;
+  --bg-green: #a7c957;
+  --bg-white: #fffcf2;
+
+  --text-white: #f3f4f6;
+  --text-black: #252422;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* HEADER */
+
+header {
+  background-image: linear-gradient(
+      0deg,
+      rgba(204, 226, 176, 0.7),
+      rgba(161, 234, 169, 0.7)
+    ),
+    url(/assets/img/banner-4.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 0px 30px 0px 30px;
+  margin: 0 auto;
+  z-index: 999;
+}
+
+.logo {
+  height: 100%;
+  cursor: pointer;
+}
+
+.navbar,
+.navbar-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  gap: 120px;
+}
+
+.navbar-list {
+  gap: 30px;
+}
+
+.navbar-list a {
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-list li:first-child > a {
+  color: #fafbfa;
+  font-weight: 800;
+}
+
+.cart-icon {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--text-black);
+  cursor: pointer;
+}
+
+.user-icon {
+  font-weight: 600;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--text-black);
+  cursor: pointer;
+}
+
+/* MENU DE HAMBURGUESA */
+
+.menu-label {
+  display: none;
+}
+
+/* CARRITO */
+
+.cart {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  padding: 50px 30px;
+  background: linear-gradient(to top, #121e3c, var(--background));
+  border-left: 1px solid var(--bg-green);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  z-index: 2;
+  min-width: 375px;
+  transform: translate(200%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart::-webkit-scrollbar {
+  display: none;
+}
+
+.cart h2 {
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #2323234e;
+  padding: 20px;
+  border: 1px solid var(--electric);
+  border-radius: 10px;
+}
+
+.cart-item img {
+  height: 65px;
+  width: 65px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 110px;
+}
+
+.item-title {
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.item-price {
+  background: linear-gradient(to right, #1f960f, #f6f4f6);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.item-handler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quantity-handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: var(--text-white);
+  font-weight: 400;
+}
+
+.item-quantity {
+  color: var(--text-gray);
+}
+
+.up {
+  border: 1px solid var(--electric);
+}
+
+.down {
+  background-color: var(--secondary);
+  border: 1px solid var(--electric);
+}
+
+.divider {
+  margin-top: 20px;
+  border: 0.5px solid var(--electric);
+  width: 100%;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.cart-total p {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.cart-total span {
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* Toggle cart */
+
+.open-cart {
+  transform: translate(0%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.empty-msg {
+  color: var(--text-black);
+  font-size: 14px;
+}
+
+/* MAIN */
+
+main {
+  background: var(--bg-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+}
+
+/* HERO */
+
+#hero {
+  margin-top: 65px;
+  padding: 70px 0;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+
+.hero-info h1 {
+  font-size: 48px;
+  width: 80%;
+  min-width: 500px; /*Para que nunca ocupe menos que esto en desktop*/
+  font-weight: 800;
+  /*Agregamos gradiente en clase 10*/
+  background: linear-gradient(to top, #2c6e1f, #082e05);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.hero-info p {
+  font-size: 14px;
+  font-weight: 500;
+  width: 70%;
+  color: var(--text-black);
+}
+
+.hero-info p > span {
+  font-weight: 800;
+}
+
+.hero-info a {
+  color: var(--text-white);
+  background-color: var(--primary);
+  width: 120px;
+  padding: 8px 0px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hero-right {
+  width: 300px;
+  background: var(--secondary);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-right img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.slider-container {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  overflow: hidden;
+  animation: slider 20s infinite;
+}
+
+.slider-content h1 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.slider-content p {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.slider-content:nth-child(1) {
+  left: 0;
+  animation-delay: -1s;
+  background-image: linear-gradient(
+      0deg,
+      rgba(204, 226, 176, 0.7),
+      rgba(161, 234, 169, 0.7)
+    ),
+    url(/assets/img/verduras-banner-1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-content:nth-child(2) {
+  left: 0;
+  animation-delay: 4s;
+  background-image: url(/assets/img/verduras-banner-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-content:nth-child(3) {
+  left: 0;
+  animation-delay: 9s;
+  background-image: url(/assets/img/banner-3.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-content:nth-child(4) {
+  left: 0;
+  animation-delay: 14s;
+  background-image: url(/assets/img/banner-4.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#servicios {
+  background-color: #ffffff;
+  padding: 60px 0;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: -20%;
+  border-radius: 20px;
+}
+
+#servicios h2 {
+  color: rgb(22, 87, 35);
+}
+
+.servicios-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 150px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.servicios-icon {
+  width: 250px;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 0px;
+  gap: 25px;
+  cursor: pointer;
+}
+
+.servicios-icon h1,
+p {
+  color: #1f960f;
+}
+
