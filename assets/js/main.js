@@ -1,6 +1,3 @@
-
-
-
 var swiper = new Swiper(".featured-slider", {
     spaceBetween: 10,
     loop:true,
