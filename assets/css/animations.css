@@ -30,7 +30,7 @@ html {
 
 .navbar-list li a::after {
     content: '';
-    height: 4px;
+    height: 3px;
     width: 100%;
     background: #ffffff;
     position: absolute;
@@ -46,6 +46,15 @@ html {
     transform: scaleX(1);
 }
 
+.menu-icon:hover {
+  border: 3px solid #ffffff;
+  padding: 12px 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: #ffffff;
+  transition: all 0.2s ease-in;
+}
+
 /* CARRITO */
 
 .cart-icon .user-icon {
@@ -53,20 +62,20 @@ html {
   }
   
   .cart-icon:hover {
-    border: 5px solid #ffffff;
+    border: 3px solid #ffffff;
     padding: 12px 18px;
     font-weight: 600;
     border-radius: 10px;
-    color: #ff6b6c;
+    color: #ffffff;
     transition: all 0.2s ease-in;
   }
 
   .user-icon:hover {
-    border: 5px solid #ffffff;
+    border: 3px solid #ffffff;
     padding: 12px 18px;
     font-weight: 600;
     border-radius: 10rem;
-    color: #ff6b6c;
+    color: #ffffff;
     transition: all 0.2s ease-in;
   }
   
@@ -89,7 +98,7 @@ html {
   
   .btn-add:hover,
   .hero-info a:hover {
-    background-color: var(--text-black);
+    background-color: #082e05;
     transition: all 0.2s ease-in;
   }
   
@@ -192,3 +201,49 @@ html {
 .hero-right img:hover {
     transform: scale(1.20) translate3d(10%, 10%, 0);
 }
+
+.servicios-icon:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1%);
+  border-radius: 2rem;
+  background-color: 
+    rgba(161, 234, 169, 0.2);
+}
+
+.heading span {
+  opacity: 0;
+  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+  animation-delay: 0.3s;
+}
+
+/* FEATURED*/
+
+.heading::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: .01rem;
+  background: rgba(0,0,0,.1);
+  z-index: -1;
+}
+
+.featured .featured-slider .box:hover{
+  border: var(--border-hover);
+}
+
+.featured .featured-slider .box:hover .image{
+  transform: translateY(1rem);
+}
+
+.featured .featured-slider .box .icons a:hover{
+  background: #82dc76;
+  color: #fff;
+}
+
+.featured .featured-slider .box .content a:hover {
+  background-color: #157808;
+}
+
