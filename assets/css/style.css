@@ -684,3 +684,12 @@ p {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
+.disabled {
+  background-color: var(--text-black);
+  color: white;
+  cursor: not-allowed;
+}

@@ -4,8 +4,8 @@ const total = document.querySelector(".total");
 const categories = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 const btnLoad = document.querySelector(".btn-load");
-const btnBuy = document.querySelector(".btn-buy");
-const barsBtn = document.querySelector(".manu-label");
+const buyBtn = document.querySelector(".btn-buy");
+const barsBtn = document.querySelector(".menu-label");
 const cartBtn = document.querySelector(".cart-label");
 const cartMenu = document.querySelector(".cart");
 const barsMenu = document.querySelector(".navbar-list");
@@ -123,6 +123,20 @@ const renderCart = (cartList) => {
     productsCart.innerHTML = cartList.map(renderCartProduct).join('');
 };
 
+const showTotal = (cartList) => {
+    total.innerHTML = `${cartList
+    .reduce((acc, cur) => acc + Number(cur.price) * cur.quantity, 0)
+    .toFixed(2)} $`;
+};
+
+const disableBuyBtn = () => {
+    if (!cart.length) {
+        buyBtn.classList.add('disabled');
+    } else {
+        buyBtn.classList.remove('disabled');
+    }
+};
+
 const addProduct = (e) => {
     if(!e.target.classList.contains('btn-add')) return;
     const product = {
@@ -131,7 +145,7 @@ const addProduct = (e) => {
         price: e.target.dataset.price,
         img: e.target.dataset.img,
     };
-    
+
     const existingCartItem = cart.find(item => item.id === product.id);
 
     if(existingCartItem){
@@ -145,15 +159,27 @@ const addProduct = (e) => {
     }
     saveLocalStorage(cart);
     renderCart(cart);
+    showTotal(cart);
+    disableBuyBtn();
 
 };
 
 const toggleMenu = () => {
     barsMenu.classList.toggle('open-menu');
+    if (cartMenu.classList.contains('open-cart')) {
+        cartMenu.classList.remove('open-cart');
+        return;
+    }
+    overlay.classList.toggle('show-overlay');
+
 };
 
 const toggleCart = () => {
     cartMenu.classList.toggle('open-cart');
+    if (barsMenu.classList.contains('open-menu')) {
+        barsMenu.classList.remove('open-menu');
+        return;
+    }
 };
 
 const init = () => {
