@@ -130,7 +130,7 @@ const showTotal = (cartList) => {
 };
 
 const disableBuyBtn = () => {
-    if (!cart.length) {
+    if (!cart.length === 0) {
         buyBtn.classList.add('disabled');
     } else {
         buyBtn.classList.remove('disabled');
@@ -149,11 +149,11 @@ const addProduct = (e) => {
     const existingCartItem = cart.find(item => item.id === product.id);
 
     if(existingCartItem){
-        cart = cart.map((item) => {
+        cart = cart.map(item => {
             return item.id === product.id
             ? { ... item, quantity: Number(item.quantity) + 1}
             : item;
-        })
+        });
     } else {
         cart = [ ... cart, { ... product, quantity: 1}];
     }
@@ -185,6 +185,7 @@ const toggleCart = () => {
 const init = () => {
     document.addEventListener('DOMContentLoaded', renderProducts('todas', 0));
     document.addEventListener('DOMContentLoaded', renderCart(cart));
+    document.addEventListener('DOMContentLoaded', showTotal(cart));
     categories.addEventListener('click', filterProducts);
     btnLoad.addEventListener('click', showMore);
     products.addEventListener('click', addProduct);
