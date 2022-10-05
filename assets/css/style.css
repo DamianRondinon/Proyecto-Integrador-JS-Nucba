@@ -102,6 +102,11 @@ header {
   display: none;
 }
 
+.menu-icon {
+  font-size: 15px;
+  color: white;
+}
+
 /* CARRITO */
 
 .cart {

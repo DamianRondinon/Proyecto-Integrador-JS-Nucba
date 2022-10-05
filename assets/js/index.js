@@ -103,7 +103,8 @@ const renderCartProduct = (cartProduct) => {
     <img src="${img}" alt="" />
     <div class="item-info">
     <h3 class="item-title">${name}</h3>
-    <p>$${price}</p>
+    <p>Valor</p>
+    <span class="item-price">$${price}</span>
     </div>
     <div class="item-handler">
     <span class="quantity-handler down" data-id=${id}>-</span>
@@ -147,16 +148,22 @@ const addProduct = (e) => {
 
 };
 
+const toggleMenu = () => {
+    barsMenu.classList.toggle('open-menu');
+};
+
 const toggleCart = () => {
     cartMenu.classList.toggle('open-cart');
-}
+};
 
 const init = () => {
     document.addEventListener('DOMContentLoaded', renderProducts('todas', 0));
+    document.addEventListener('DOMContentLoaded', renderCart(cart));
     categories.addEventListener('click', filterProducts);
     btnLoad.addEventListener('click', showMore);
     products.addEventListener('click', addProduct);
     cartBtn.addEventListener('click', toggleCart);
+    barsBtn.addEventListener('click', toggleMenu);
 };
 
 init();
